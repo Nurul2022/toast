@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <br>
+    <button onclick="see()" class="btn btn-light-lg rounded-pill bg-primary text-light position-absolute top-50 start-50 translate-middle">Get offer next booking</button>
+    
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="icons/vector.svg" class="rounded me-2" alt="...">
+            <strong class="me-auto">20% off on next booking</strong>
+            
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        var option = {
+            Animation: true,
+            autohide: false,
+            delay: 5000,
+        }
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, option)
+        })
+        function see() {
+            for (var i = 0; i < toastList.length; i++) {
+                toastList[i].show();
+            }
+        }
+    </script>
+</body>
+
+</html>
